@@ -153,7 +153,7 @@ def main():
     track_string = ""
     for track in track_list:
         #不能移动太快,否则会被认为是程序执行
-        track_string = track_string + "{%d,%d}," % (track, y - 445)
+        track_string = track_string + "{%d,%d}," + (track, y - 445)
         #xoffset=track+22:这里的移动位置的值是相对于滑动圆球左上角的相对值，而轨迹变量里的是圆球的中心点，所以要加上圆球长度的一半。
         #yoffset=y-445:这里也是一样的。不过要注意的是不同的浏览器渲染出来的结果是不一样的，要保证最终的计算后的值是22，也就是圆球高度的一半
         ActionChains(driver).move_to_element_with_offset(to_element=element, xoffset=track+22, yoffset=y-445).perform()
